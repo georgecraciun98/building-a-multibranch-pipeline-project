@@ -1,7 +1,7 @@
 pipeline {
     agent {
         docker {
-            image 'node:9-alpine'
+            image 'node:12-alpine'
             args '-p 3000:3000 -p 5000:5000'
         }
     }
@@ -25,7 +25,7 @@ pipeline {
             }
             steps {
                 sh './jenkins/scripts/deliver-for-development.sh'
-                input message: 'Finished using the web site? (Click "Proceed" to continue)'
+                input message: 'Finished using the web site? (Click "Proceed" to continue)'i
                 sh './jenkins/scripts/kill.sh'
             }
         }
